@@ -72,7 +72,7 @@ public class General {
 		System.out.println("Popped: " + stack.pop());
 		System.out.println("Popped: " + stack.pop());
 		System.out.println("Popped: " + stack.pop());
-		System.out.println(stack.toString());*/
+		System.out.println(stack.toString());
 		
 		Queue<Integer> queue = new Queue<Integer>();
 		queue.enqueue(1);
@@ -85,7 +85,7 @@ public class General {
 		System.out.println("Dequeued: " + queue.dequeue());
 		System.out.println("Dequeued: " + queue.dequeue());
 		System.out.println("Dequeued: " + queue.dequeue());
-		System.out.println(queue.toString());
+		System.out.println(queue.toString());*/
 		
 		
 	}
