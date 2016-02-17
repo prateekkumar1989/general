@@ -1,16 +1,19 @@
 package general;
 
 import java.util.List;
+import java.util.PriorityQueue;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class General {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Throwable {
 		
 		/*ReverseArray reversearray = new ReverseArray();
 		reversearray.solve();
@@ -85,11 +88,75 @@ public class General {
 		System.out.println("Dequeued: " + queue.dequeue());
 		System.out.println("Dequeued: " + queue.dequeue());
 		System.out.println("Dequeued: " + queue.dequeue());
-		System.out.println(queue.toString());*/
+		System.out.println(queue.toString());
 		
+		Continuous continuous = new Continuous(args[0]);
+		continuous.solve();
+		
+		PriorityQueue pq = new PriorityQueue(Collections.reverseOrder());
+		pq.offer(3);
+		pq.offer(2);
+		pq.offer(1);
+		
+		while(pq.size()>0) System.out.println(pq.poll());*/
+		
+		/*int input[] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+		int array[]; 
+		
+		BubbleSort bubblesort = new BubbleSort(input);
+		array = bubblesort.sort();
+		System.out.println(Arrays.toString(array));
+		
+		SelectionSort selectionsort = new SelectionSort(input);
+		array = selectionsort.sort();
+		System.out.println(Arrays.toString(array));
+		
+		InsertionSort insertionsort = new InsertionSort(input);
+		array = insertionsort.sort();
+		System.out.println(Arrays.toString(array));
+		
+		MergeSort mergesort = new MergeSort(input);
+		array = mergesort.sort();
+		System.out.println(Arrays.toString(array));
+		
+		General general = new General();
+		general.finalize();
+		
+		BST bst1 = new BST();
+		bst1.add(4);
+		bst1.add(2);
+		bst1.add(1);
+		bst1.add(3);
+		bst1.add(5);
+		bst1.add(6);
+		bst1.add(7);
+		
+		//bst1.display(bst1.root); System.out.println();
+		bst1.inorder(bst1.root); System.out.println();
+		bst1.preorder(bst1.root); System.out.println();
+		//bst1.postorder(bst1.root); System.out.println();
+		
+		BST bst2 = new BST();
+		bst2.add(4);
+		bst2.add(2);
+		bst2.add(1);
+		bst2.add(3);
+		bst2.add(5);
+		bst2.add(6);
+		bst2.add(7);
+		
+		bst2.inorder(bst2.root); System.out.println();
+		bst2.preorder(bst2.root); System.out.println();
+		
+		if(new BST().identicalTrees(bst2.root, bst2.root)) System.out.println("Equal trees");
+		else System.out.println("Different trees");*/
 		
 	}
-
 	
+	@Override
+	protected void finalize() throws Throwable {
+		super.finalize();
+		System.out.println("finalize");
+	}
 
 }
