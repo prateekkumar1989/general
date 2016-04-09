@@ -33,22 +33,26 @@ public class MergeSort {
 		int n1 = q-p+1;
 		int n2 = r-q;
 		
-		int L[] = new int[n1]; 
-		int R[] = new int[n2];
+		int L[] = new int[n1+1]; 
+		int R[] = new int[n2+1];
 		
-		for(int i=0; i<n1; i++) L[i] = array[p+i];
+		for(int i=0; i<n1; i++) L[i] = array[p+i]; 
 		for(int j=0; j<n2; j++) R[j] = array[q+1+j];
+		L[n1]=Integer.MAX_VALUE; R[n2]=Integer.MAX_VALUE;
 		int i=0, j=0, k=0;
-		System.out.println("p = " + p + " q = " + q + " r = " + r);
-		int min = (n1<n2?n1:n2);
+		//System.out.println("p = " + p + " q = " + q + " r = " + r);
 		
-		for(k=p; k < min; k++) { 
-			System.out.println("k = " + k + " i = " + i + " j = " + j);
-			if(L[i]<=R[j]) { array[k] = L[i]; i++; }
-			else { array[k] = R[j]; j++; }
-		}
+		for(k=p; k <= r; k++) { 
+			//System.out.println("k = " + k + " i = " + i + " j = " + j);
+			
+			if(L[i] <= R[j]) { 
+				array[k] = L[i]; 
+				i++; }
+			else { 
+				array[k] = R[j]; 
+				j++; 
+			}
+		}		
 		
-		if(n1>n2) for(int t=i; t<n1; t++) array[t] = L[t];
-		if(n2>n1) for(int t=j; t<n2; t++) array[t] = R[t];
 	}
 }

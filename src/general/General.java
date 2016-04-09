@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
+import java.util.*;
 
 public class General {
 
@@ -98,10 +99,15 @@ public class General {
 		pq.offer(2);
 		pq.offer(1);
 		
-		while(pq.size()>0) System.out.println(pq.poll());*/
+		while(pq.size()>0) System.out.println(pq.poll());
 		
-		/*int input[] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-		int array[]; 
+		int input[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+		int[] array; 
+		
+		System.out.println(secondmax(input));
+		
+		BinarySearch binarysearch = new BinarySearch(input);
+		for(int i=1;i<=10;i++) System.out.println(binarysearch.find(i, 0, input.length));
 		
 		BubbleSort bubblesort = new BubbleSort(input);
 		array = bubblesort.sort();
@@ -119,24 +125,36 @@ public class General {
 		array = mergesort.sort();
 		System.out.println(Arrays.toString(array));
 		
+		QuickSort quicksort = new QuickSort(input);
+		array = quicksort.sort();
+		System.out.println(Arrays.toString(array));
+		
+		HeapSort heapsort = new HeapSort(input);
+		List<Integer> qarray = heapsort.sort();
+		System.out.println(qarray);
+		heapsort = new HeapSort(input);
+		for(int i=0; i<input.length; i++) System.out.print(heapsort.heap_extract_max() + " ");
+		
 		General general = new General();
 		general.finalize();
 		
 		BST bst1 = new BST();
-		bst1.add(4);
-		bst1.add(2);
-		bst1.add(1);
-		bst1.add(3);
-		bst1.add(5);
-		bst1.add(6);
-		bst1.add(7);
+		bst1.add(bst1.root, 4);
+		bst1.add(bst1.root, 2);
+		bst1.add(bst1.root, 1);
+		bst1.add(bst1.root, 3);
+		bst1.add(bst1.root, 5);
+		bst1.add(bst1.root, 6);
+		bst1.add(bst1.root, 7);
 		
 		//bst1.display(bst1.root); System.out.println();
-		bst1.inorder(bst1.root); System.out.println();
-		bst1.preorder(bst1.root); System.out.println();
+		//bst1.inorder(bst1.root); System.out.println();
+		//bst1.preorder(bst1.root); System.out.println();
 		//bst1.postorder(bst1.root); System.out.println();
 		
-		BST bst2 = new BST();
+		bst1.array = new int[1000]; bst1.length = 0; bst1.allPaths(bst1.root, bst1.array, bst1.length);
+		
+		/*BST bst2 = new BST();
 		bst2.add(4);
 		bst2.add(2);
 		bst2.add(1);
@@ -149,10 +167,63 @@ public class General {
 		bst2.preorder(bst2.root); System.out.println();
 		
 		if(new BST().identicalTrees(bst2.root, bst2.root)) System.out.println("Equal trees");
-		else System.out.println("Different trees");*/
+		else System.out.println("Different trees");
+		
+		RotateArray ra = new RotateArray(10);
+		for(int i=0; i<10; i++) ra.put(i, i+1);
+		System.out.println(ra.toString());
+		ra.put(10, 11);
+		ra.rotate(-2);
+		System.out.println(ra.toString());
+		
+		TestMem tm = new TestMem();
+		
+		Hash2D hash2d = new Hash2D();
+		hash2d.insert(1,1, 10);
+		hash2d.insert(2,2, 20);
+		
+		System.out.println(hash2d.get(0, 0));
+		System.out.println(hash2d.get(1, 1));
+		System.out.println(hash2d.get(2, 2));
+		
+		SQLiteJDBC sql = new SQLiteJDBC();
+		sql.init();
+		sql.create();
+		sql.insert();
+		sql.select();
+		
+		*/
+		
 		
 	}
 	
+		
+	private static int secondmax(int[] input) {
+
+		int max = 0, secondmax = 0;
+		
+		if(input[0] > input[1]) {
+			max = input[0]; secondmax = input[1];
+		}
+		else {
+			max = input[1]; secondmax = input[0];
+		}
+		
+		for(int i=2; i<input.length; i++) {
+			
+			if(input[i] > secondmax) {
+				if(input[i] > max) {
+					secondmax = max;
+					max = input[i];
+				}
+				else secondmax = input[i];
+			}
+		}
+		
+		return secondmax;
+	}
+
+
 	@Override
 	protected void finalize() throws Throwable {
 		super.finalize();

@@ -2,6 +2,8 @@ package general;
 
 public class BST {
 	public Node root;
+	public int array[];
+	public int length;
 	
 	class Node {
 		int data;
@@ -15,16 +17,34 @@ public class BST {
 	}
 	
 	public BST() {
+		array = new int[1000];
+		length = 0;
 		root = null;
 	}
 	
-	void add(int data) {
-		Node node = new Node(data);
+	void add(Node node, int data) {
+		
+		if(root == null) { root = new Node(data); return; }
+		if(data < node.data) {
+			if(node.left == null) {
+				node.left = new Node(data);
+				return;
+			}
+			else add(node.left, data);
+		}
+		else {
+			if ( node.right == null )	{
+				node.right = new Node(data);
+				return;
+			}
+			else add(node.right, data);
+		}
+		/*Node node = new Node(data);
 		if(root == null) { 
 			root = node;
 			return;
 		}
-		insert(root, node);
+		insert(root, node);*/
 	}
 	
 	void insert(Node latestRoot, Node node) {
@@ -95,4 +115,15 @@ public class BST {
         /* 3. one empty, one not -> false */
         return false;
     }
+	
+	void allPaths(Node root, int array[], int length) {
+		if(root == null) return;
+		array[length++] = root.data;
+		if(root.left == null && root.right == null) {
+			for(int i=0; i<length; i++) System.out.print(array[i] + " ");
+			System.out.println("Path completed");
+		}
+		allPaths(root.left, array, length);
+		allPaths(root.right, array, length);
+	}
 }

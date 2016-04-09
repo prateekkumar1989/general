@@ -46,5 +46,6 @@ public class Node<T> {
 	
 	/*int data = 0;
 	Node link = null;
-	*/
+	*/ 
+	
 }
