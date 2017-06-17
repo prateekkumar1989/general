@@ -127,3 +127,142 @@ public class BST {
 		allPaths(root.right, array, length);
 	}
 }
+
+
+
+/*
+
+
+import java.util.*;
+
+
+public class Runner
+{
+  
+  public static void main(String[] args)
+  {
+    
+    BST bst1 = new BST();
+    bst1.add(bst1.root, 2);
+    bst1.add(bst1.root, 1);
+    bst1.add(bst1.root, 3);
+    bst1.display(bst1.root); System.out.println(" display");
+    //bst1.preorder(bst1.root); System.out.println(" preorder");
+    //bst1.inorder(bst1.root); System.out.println(" inorder");
+    //bst1.postorder(bst1.root); System.out.println(" postorder");
+    
+    BST bst2 = new BST();
+    bst2.add(bst2.root, 2);
+    bst2.add(bst2.root, 1);
+    bst2.add(bst2.root, 3);
+    bst2.display(bst2.root); System.out.println(" display");
+    //bst2.preorder(bst2.root); System.out.println(" preorder");
+    //bst2.inorder(bst2.root); System.out.println(" inorder");
+    //bst2.postorder(bst2.root); System.out.println(" postorder");
+    
+    System.out.println("Equal ?= " + bst1.identicalTrees(bst1.root, bst2.root));
+  }
+}
+
+
+public class Node
+{
+	int data;
+	Node left, right, link;
+  
+  public Node(int data) {
+   
+    this.data = data;
+    left = right = link = null;
+  }
+}
+
+public class BST {
+
+	Node root;
+  
+  	public BST() {
+    	
+      root = null;
+    }
+  
+  	
+  public void add(Node cur, int data) {
+   
+    if(root == null) { root = new Node(data); return; }
+    
+    if( data < cur.data ) {
+      
+      if(cur.left == null) cur.left = new Node(data); 
+      else	add(cur.left, data);
+      
+    } else {
+      	
+      	if(cur.right == null) cur.right = new Node(data);
+      	else add(cur.right, data);
+    }
+  }
+  
+  
+  void display(Node cur) {
+   
+    if(cur != null) {
+  		
+      display(cur.left);
+	  System.out.print(cur.data + " ");
+	  display(cur.right);
+    }
+  }
+  
+  void preorder(Node cur) {
+   
+    if(cur != null) {
+  		
+      System.out.print(cur.data + " ");
+      display(cur.left);
+	  display(cur.right);
+    }
+  }
+  
+  void inorder(Node cur) {
+   
+    if(cur != null) {
+  		
+	  display(cur.left);
+	  System.out.print(cur.data + " ");
+	  display(cur.right);
+    }
+  }
+  
+  void postorder(Node cur) {
+   
+    if(cur != null) {
+  		
+      display(cur.left);
+      display(cur.right);
+	  System.out.print(cur.data + " ");
+    }
+  }
+  
+  boolean identicalTrees(Node a, Node b) {
+        
+        //*1. both empty
+        if (a == null && b == null) {
+            return true;
+        }
+ 
+        //* 2. both non-empty -> compare them
+        if (a != null && b != null) {
+            return (a.data == b.data
+                    && identicalTrees(a.left, b.left)
+                    && identicalTrees(a.right, b.right));
+        }
+ 
+        /* 3. one empty, one not -> false
+        return false;
+    }
+  
+}
+
+
+*/
