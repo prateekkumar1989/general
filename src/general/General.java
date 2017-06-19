@@ -16,7 +16,14 @@ public class General {
 
 	public static void main(String[] args) throws Throwable {
 		
-		/*ReverseArray reversearray = new ReverseArray();
+		/*
+		String s1 = "a";
+		String s2 = new String("a");
+		
+		if(s1 == s2) System.out.println("equal");
+		else System.out.println("not equal");
+		
+		ReverseArray reversearray = new ReverseArray();
 		reversearray.solve();
 		
 		CollectionsLauncher collectionslauncher = new CollectionsLauncher();
@@ -193,6 +200,10 @@ public class General {
 		sql.select();
 		
 		*/
+		
+		String infix = "(A+B^C)*D+E^5";
+		PolishNotation polishNotation = new PolishNotation();
+		polishNotation.infixToPrefix(infix);
 		
 		
 	}
