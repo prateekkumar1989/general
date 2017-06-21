@@ -199,11 +199,20 @@ public class General {
 		sql.insert();
 		sql.select();
 		
-		*/
+		//String infix = "1+2*3-4/2+5";
+		String infix = "5-6*7";
 		
-		String infix = "(A+B^C)*D+E^5";
+		System.out.println("Infix: " + infix);
 		PolishNotation polishNotation = new PolishNotation();
-		polishNotation.infixToPrefix(infix);
+		
+		String prefix = polishNotation.infixToPrefix(infix);
+		System.out.println("Prefix: " + prefix);
+		
+		String postfix = polishNotation.infixToPostfix(infix);
+		System.out.println("Postfix: " + postfix);
+		
+		System.out.println("PrefixToPostfix converted: " + polishNotation.prefixToPostfix(prefix));
+		*/
 		
 		
 	}
