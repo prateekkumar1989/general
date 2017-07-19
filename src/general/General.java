@@ -214,6 +214,16 @@ public class General {
 		System.out.println("PrefixToPostfix converted: " + polishNotation.prefixToPostfix(prefix));
 		*/
 		
+		int[] input = {1, 2, 3, 4, 5};		    // input array
+		int k = 3;                             // sequence length   
+		Combinations combinations = new Combinations(input, k);
+		List<int[]> subsets = combinations.getnCk();
+		
+		for(int[] subset : subsets) {
+			for(int element : subset) System.out.print(element + " ");
+			System.out.println();
+		}
+		
 		
 	}
 	
