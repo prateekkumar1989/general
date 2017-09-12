@@ -15,7 +15,6 @@ import java.util.*;
 public class General {
 
 	public static void main(String[] args) throws Throwable {
-		
 		/*
 		String s1 = "a";
 		String s2 = new String("a");
@@ -211,8 +210,7 @@ public class General {
 		String postfix = polishNotation.infixToPostfix(infix);
 		System.out.println("Postfix: " + postfix);
 		
-		System.out.println("PrefixToPostfix converted: " + polishNotation.prefixToPostfix(prefix));
-		*/
+		System.out.println("PrefixToPostfix converted: " + polishNotation.prefixToPostfix(prefix));		
 		
 		int[] input = {1, 2, 3, 4, 5};		    // input array
 		int k = 3;                             // sequence length   
@@ -224,6 +222,8 @@ public class General {
 			System.out.println();
 		}
 		
+		StreamRunner streamRunner = new StreamRunner();
+		streamRunner.launch();*/
 		
 	}
 	
